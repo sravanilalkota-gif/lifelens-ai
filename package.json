@@ -1,0 +1,29 @@
+{
+  "name": "lifelens-ai",
+  "private": true,
+  "version": "1.0.0",
+  "description": "LifeLens AI — See. Understand. Act. A visual personal assistant that turns what your camera sees into tasks, events and priorities.",
+  "workspaces": [
+    "shared",
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c magenta,cyan \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "npm run dev -w @lifelens/server",
+    "dev:client": "npm run dev -w @lifelens/client",
+    "build": "npm run build -w @lifelens/client",
+    "start": "npm run start -w @lifelens/server",
+    "typecheck": "npm run typecheck -w @lifelens/server && npm run typecheck -w @lifelens/client",
+    "verify": "tsx scripts/verify-engines.mjs",
+    "smoke": "npm run build && node scripts/smoke.mjs",
+    "seed:samples": "node scripts/make-sample-docs.mjs"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "jsdom": "^29.1.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

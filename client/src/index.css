@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-ink-50 text-ink-900 font-sans;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply tracking-tight;
+  }
+
+  button {
+    @apply cursor-pointer select-none;
+  }
+
+  input,
+  textarea,
+  select {
+    @apply font-sans;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-3xl shadow-card border border-ink-100/80;
+  }
+
+  .card-pad {
+    @apply p-4 sm:p-5;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl bg-brand-600 px-5 py-3.5
+           text-[15px] font-semibold text-white shadow-brand transition
+           hover:bg-brand-700 active:scale-[0.98] disabled:opacity-50 disabled:shadow-none;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl border border-ink-100 bg-white px-4 py-3
+           text-[15px] font-semibold text-ink-800 transition hover:border-brand-200 hover:text-brand-700
+           active:scale-[0.98];
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-semibold;
+  }
+
+  .input {
+    @apply w-full rounded-2xl border border-ink-100 bg-ink-50/70 px-4 py-3 text-[15px] text-ink-900
+           outline-none transition placeholder:text-ink-300 focus:border-brand-300 focus:bg-white
+           focus:ring-4 focus:ring-brand-100;
+  }
+
+  .label {
+    @apply mb-1.5 block text-[11px] font-bold uppercase tracking-[0.08em] text-ink-400;
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .skeleton {
+    background: linear-gradient(90deg, #eef0f6 25%, #f7f8fc 37%, #eef0f6 63%);
+    background-size: 400px 100%;
+    @apply animate-shimmer rounded-2xl;
+  }
+}
+
+@layer utilities {
+  .app-shell {
+    @apply mx-auto w-full max-w-[520px];
+  }
+
+  .safe-bottom {
+    padding-bottom: max(env(safe-area-inset-bottom), 0px);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-brand {
+    background-image: linear-gradient(135deg, #5b62f5 0%, #4640e0 45%, #7c3aed 100%);
+  }
+
+  .gradient-soft {
+    background-image: linear-gradient(180deg, #eef0ff 0%, #f6f7fb 60%);
+  }
+}
