@@ -4,13 +4,17 @@
  *   Frontend  →  Express API  →  AI Vision Service  →  Structured JSON
  *            →  Priority / Task Engine  →  Store  →  Dashboard / Assistant
  */
-import 'dotenv/config';
+import dotenv from 'dotenv';
 import path from 'node:path';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import cors from 'cors';
 import express from 'express';
 import type { Request, Response, NextFunction } from 'express';
+
+dotenv.config({
+  path: path.resolve(process.cwd(), '../.env'),
+});
 import { JsonFileStore } from './data/store.js';
 import {
   adminRouter,
