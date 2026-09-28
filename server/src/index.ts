@@ -122,11 +122,15 @@ app.use((err: any, _req: Request, res: Response, next: NextFunction) => {
   res.status(500).json({ ok: false, error: 'Something went wrong inside LifeLens. Please try again.' });
 });
 
-app.listen(PORT, '0.0.0.0', () => {
-  console.log('');
-  console.log('  🔍 LifeLens AI — API');
-  console.log(`  ➜  http://localhost:${PORT}/api`);
-  console.log(`  ➜  AI mode: ${API_KEY ? `LIVE (Gemini ${MODEL})` : 'DEMO (built-in understanding engine)'}`);
-  console.log(`  ➜  User: ${USER_NAME} (${USER_COURSE})`);
-  console.log('');
-});
+if (!process.env.VERCEL) {
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log('');
+    console.log('  🔍 LifeLens AI — API');
+    console.log(`  ➜  http://localhost:${PORT}/api`);
+    console.log(`  ➜  AI mode: ${API_KEY ? `LIVE (Gemini ${MODEL})` : 'DEMO (built-in understanding engine)'}`);
+    console.log(`  ➜  User: ${USER_NAME} (${USER_COURSE})`);
+    console.log('');
+  });
+}
+
+export default app;
