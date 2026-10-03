@@ -13,7 +13,7 @@
 import type { AnalysisResult, Category } from '@lifelens/shared';
 import { computePriority, suggestReminder } from '../engines/priorityEngine.js';
 import { addDays, daysUntil, isIsoTime, localDateKey, normTime } from '../lib/dates.js';
-import { findDemoDoc, getDemoDoc } from '../data/demoData.js';
+import { findDemoDoc, getDemoDoc } from '../data/demoData.ts';
 
 const MONTHS: Record<string, number> = {
   jan: 1, january: 1, feb: 2, february: 2, mar: 3, march: 3, apr: 4, april: 4,
