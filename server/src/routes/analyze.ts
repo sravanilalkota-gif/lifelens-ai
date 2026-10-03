@@ -57,7 +57,7 @@ export function analyzeRouter(getEnv: () => { apiKey: string; model: string }): 
 
     /* ------------------------------ demo samples ---------------------------- */
     if (demoKey) {
-      const doc = demoDocs().find((d) => d.key === demoKey);
+      const doc = demoDocs.find((d) => d.key === demoKey);
       if (!doc) {
         return res.status(404).json({ ok: false, error: 'That sample document no longer exists.' } satisfies AnalyzeResponse);
       }
